@@ -1,7 +1,7 @@
-FROM node:20
-WORKDIR /jobportal
-COPY index.html .
-COPY style.css .
-COPY script.js .
-EXPOSE 3000
-CMD ["npx", "serve"]
+FROM nginx:alpine
+
+COPY index.html /usr/share/nginx/html/index.html
+COPY style.css /usr/share/nginx/html/style.css
+COPY script.js /usr/share/nginx/html/script.js
+
+EXPOSE 80
